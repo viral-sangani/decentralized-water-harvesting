@@ -6,7 +6,7 @@ from uuid import uuid4
 import socket, requests
 from urllib.parse import urlparse
 from django.http import JsonResponse, HttpResponse, HttpRequest
-from django.views.decorators.csrf import csrf_exempt #New
+from django.views.decorators.csrf import csrf_exempt 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
@@ -16,18 +16,18 @@ class Blockchain:
 
     def __init__(self):
         self.chain = []
-        self.transactions = [] #New
+        self.transactions = [] 
         self.create_block(nonce = 1, previous_hash = '0')
-        self.nodes = set() #New
+        self.nodes = set() 
 
     def create_block(self, nonce, previous_hash):
         block = {'index': len(self.chain) + 1,
                  'timestamp': str(datetime.datetime.now()),
                  'nonce': nonce,
                  'previous_hash': previous_hash,
-                 'transactions': self.transactions #New
+                 'transactions': self.transactions 
                 }
-        self.transactions = [] #New
+        self.transactions = [] 
         self.chain.append(block)
         return block
 
@@ -65,7 +65,7 @@ class Blockchain:
             block_index += 1
         return True
 
-    def add_transaction(self, sender, receiver, amount, time): #New
+    def add_transaction(self, sender, receiver, amount, time): 
         self.transactions.append({'sender': sender,
                                   'receiver': receiver,
                                   'amount': amount,
@@ -73,12 +73,12 @@ class Blockchain:
         previous_block = self.get_last_block()
         return previous_block['index'] + 1
 
-    def add_node(self, address): #New
+    def add_node(self, address): 
         parsed_url = urlparse(address)
         self.nodes.add(parsed_url.netloc)
 
 
-    def replace_chain(self): #New
+    def replace_chain(self): 
         network = self.nodes
         longest_chain = None
         max_length = len(self.chain)
@@ -99,8 +99,8 @@ class Blockchain:
 # Creating our Blockchain
 blockchain = Blockchain()
 # Creating an address for the node running our server
-node_address = str(uuid4()).replace('-', '') #New
-root_node = 'e36f0158f0aed45b3bc755dc52ed4560d' #New
+node_address = str(uuid4()).replace('-', '') 
+root_node = 'e36f0158f0aed45b3bc755dc52ed4560d' 
 
 # Mining a new block
 def mine_block(request):
@@ -109,7 +109,10 @@ def mine_block(request):
         previous_nonce = previous_block['nonce']
         nonce = blockchain.proof_of_work(previous_nonce)
         previous_hash = blockchain.hash(previous_block)
-        blockchain.add_transaction(sender = root_node, receiver = node_address, amount = 1.15, time=str(datetime.datetime.now()))
+        
+        print(blockchain.transactions)
+        if len(blockchain.transactions) == 0:
+            blockchain.add_transaction(sender = root_node, receiver = node_address, amount = 1.15, time=str(datetime.datetime.now()))
         block = blockchain.create_block(nonce, previous_hash)
         response = {'message': 'Congratulations, you just mined a block!',
                     'index': block['index'],
