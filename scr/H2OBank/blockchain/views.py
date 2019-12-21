@@ -142,12 +142,16 @@ def is_valid(request):
 # Adding a new transaction to the Blockchain
 @csrf_exempt
 def add_transaction(request): #New
+
     if request.method == 'POST':
+        
         received_json = json.loads(request.body)
+        print(received_json)
         transaction_keys = ['sender', 'receiver', 'amount','time']
         if not all(key in received_json for key in transaction_keys):
             return 'Some elements of the transaction are missing', HttpResponse(status=400)
         index = blockchain.add_transaction(received_json['sender'], received_json['receiver'], received_json['amount'],received_json['time'])
+        
         response = {'message': f'This transaction will be added to Block {index}'}
     return JsonResponse(response)
 

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Argon Dashboard PRO - Premium Bootstrap 4 Admin Template</title>
+
+	{% load static %}
+	<link rel="icon" href="{% static 'account/assets/img/brand/favicon.png' %}" type="image/png">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+	<link rel="stylesheet" href="{% static 'account/assets/vendor/nucleo/css/nucleo.css' %}" type="text/css">
+	<link rel="stylesheet" href="{% static 'account/assets/vendor/_fortawesome/fontawesome-free/css/all.min.css' %}" type="text/css">
+	<link rel="stylesheet" href="{% static 'account/assets/css/argon.min.css' %}" type="text/css">
+
+</head>
+<body class="bg-default">
+
+	<!-- Navbar -->
+	<nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
+		<div class="container">
+			<a class="navbar-brand" href="../../../argon-dashboard-pro/pages/dashboards/dashboard.html">
+				<img src="{% static 'account/assets/img/brand/white.png' %}">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="navbar-collapse navbar-custom-collapse collapse" id="navbar-collapse">
+				<div class="navbar-collapse-header">
+					<div class="row">
+						<div class="col-6 collapse-brand">
+							<a href="../../../argon-dashboard-pro/pages/dashboards/dashboard.html">
+								<img src="{% static 'account/assets/img/brand/blue.png' %}">
+							</a>
+						</div>
+						<div class="col-6 collapse-close">
+							<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+								<span></span>
+								<span></span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a href="../../../argon-dashboard-pro/pages/dashboards/dashboard.html" class="nav-link">
+							<span class="nav-link-inner--text">Dashboard</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="../../../argon-dashboard-pro/pages/examples/login.html" class="nav-link">
+							<span class="nav-link-inner--text">Login</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="../../../argon-dashboard-pro/pages/examples/register.html" class="nav-link">
+							<span class="nav-link-inner--text">Register</span>
+						</a>
+					</li>
+				</ul>
+				<hr class="d-lg-none" />
+				<ul class="navbar-nav align-items-lg-center ml-lg-auto">
+					<li class="nav-item">
+						<a class="nav-link nav-link-icon" href="https://github.com/creativetimofficial" target="_blank" data-toggle="tooltip" data-original-title="Star us on Github">
+							<i class="fab fa-github"></i>
+							<span class="nav-link-inner--text d-lg-none">Github</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- Main content -->
+	{% block main %}
+	
+
+	{% endblock %}
+	<!-- Footer -->
+	<footer class="py-5" id="footer-main">
+		<div class="container">
+			<div class="row align-items-center justify-content-xl-between">
+				<div class="col-xl-6">
+					<div class="copyright text-center text-xl-left text-muted">
+						&copy; 2019 <a href="../../../index.html" class="font-weight-bold ml-1" target="_blank">CodeBlooded Team</a>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<ul class="nav nav-footer justify-content-center justify-content-xl-end">
+						<li class="nav-item">
+							<a href="../../../index.html" class="nav-link" target="_blank">About Us</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Argon Scripts -->
+	<!-- Core -->
+	<script src="{% static 'account/assets/vendor/jquery/dist/jquery.min.js' %}"></script>
+	<script src="{% static 'account/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+	<script src="{% static 'account/assets/vendor/js-cookie/js.cookie.js' %}"></script>
+	<script src="{% static 'account/assets/vendor/jquery-scrollbar/jquery.scrollbar.min.js' %}"></script>
+	<script src="{% static 'account/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js' %}"></script>
+	<!-- Argon JS -->
+	<script src="{% static 'account/assets/js/argon.min.js' %}"></script>
+
+</body>
+</html>
