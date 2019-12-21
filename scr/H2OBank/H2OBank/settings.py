@@ -29,7 +29,6 @@ INSTALLED_APPS = [
     'blockchain',
     'account',
     'website',
-    'flutter_api',
 
     'corsheaders',
     'rest_framework',

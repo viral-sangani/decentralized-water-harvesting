@@ -4,7 +4,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/iot/', include('blockchain.urls')),
-    path('auth/', include('flutter_api.urls')),
     path('account/', include('account.urls')),
     path('', include('website.urls')),
 ]
