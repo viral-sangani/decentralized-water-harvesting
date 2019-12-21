@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'blockchain',
     'account',
     'website',
+    'flutter_api',
 
     'corsheaders',
     'rest_framework',
@@ -101,7 +102,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 
 LANGUAGE_CODE = 'en-us'
 

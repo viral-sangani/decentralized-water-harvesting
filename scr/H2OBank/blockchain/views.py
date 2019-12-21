@@ -186,3 +186,33 @@ class test(APIView):
     def post(self, request):
         print(json.loads(request.body))
         return Response({'success': 'true'})
+
+class container_1(APIView):
+    permission_classes = [AllowAny]
+    def post(self, request):
+        received_json = json.loads(request.body)
+        print(received_json)
+        # transaction_keys = ['sender', 'receiver', 'amount','time']
+        # if not all(key in received_json for key in transaction_keys):
+        #     return 'Some elements of the transaction are missing', HttpResponse(status=400)
+        if "sender" in received_json and "receiver" in received_json and "amount" in received_json:
+            blockchain.add_transaction(received_json['sender'], received_json['receiver'], received_json['amount'],datetime.datetime.now())
+        # print(blockchain.transactions)
+        previous_block = blockchain.get_last_block()
+        previous_nonce = previous_block['nonce']
+        nonce = blockchain.proof_of_work(previous_nonce)
+        previous_hash = blockchain.hash(previous_block)
+        
+        if len(blockchain.transactions) == 0:
+            response = {"Error": "No Transection Found"}
+        else:
+            block = blockchain.create_block(nonce, previous_hash)
+            response = {'message': 'Congratulations, you just mined a block!',
+                        'index': block['index'],
+                        'timestamp': block['timestamp'],
+                        'nonce': block['nonce'],
+                        'previous_hash': block['previous_hash'],
+                        'transactions': block['transactions'],
+                        'success': True}
+        print(response)
+        return Response(response)
