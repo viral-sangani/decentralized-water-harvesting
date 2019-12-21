@@ -28,7 +28,6 @@ INSTALLED_APPS = [
 
     'blockchain',
     'account',
-    'website',
 
     'corsheaders',
     'rest_framework',

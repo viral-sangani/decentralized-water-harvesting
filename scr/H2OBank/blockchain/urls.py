@@ -11,8 +11,13 @@ urlpatterns = [
     path('add_transaction/', views.add_transaction, name="add_transaction"), 
     path('connect_node/', views.connect_node, name="connect_node"), 
     path('replace_chain/', views.replace_chain, name="replace_chain"),
-    path('container_1/', views.container_1.as_view(), name="container_1"),
-    path('container_3/', views.container_3.as_view(), name="container_3"),
-    path('container_3_data/', views.container_3_data.as_view(), name="container_3_data"),
-    path('test/', views.test.as_view(), name="test"),
+    
+    path('api/iot/container_1/', views.container_1.as_view(), name="container_1"),
+    path('api/iot/container_3/', views.container_3.as_view(), name="container_3"),
+    path('api/iot/container_3_data/', views.container_3_data.as_view(), name="container_3_data"),
+    path('api/iot/test/', views.test.as_view(), name="test"),
+
+    ############### Website Url ###################################
+    
+    path('', home_view, name="home_view"),
 ]

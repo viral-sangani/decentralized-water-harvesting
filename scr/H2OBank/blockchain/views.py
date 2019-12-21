@@ -257,3 +257,8 @@ class container_3_data(APIView):
                         'success': True}
         
         return Response(response)
+
+#################################################### Website Code #####################################################
+
+def home_view(request):
+    return render(request, 'website/base.html')
