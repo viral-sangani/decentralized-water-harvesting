@@ -18,7 +18,7 @@ transfer using different sensors.
 
 > Using blockchain we have made a transparent system which anyone can monitor.
 > Credits are added to your system for every amount of water contributed which can be used later.
-
+![alt text](https://github.com/viral-sangani/decentralized-water-harvesting/blob/master/Images/Dashboard.png "Dashboa")
 #### Our prototype is divided into 3 parts :
 
 * 1. TANK 1 (water harvester)-
