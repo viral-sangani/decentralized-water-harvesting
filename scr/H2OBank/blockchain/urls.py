@@ -20,4 +20,5 @@ urlpatterns = [
     ############### Website Url ###################################
     
     path('', home_view, name="home_view"),
+    path('view_transactions/', views.view_transactions, name='view_transactions'),
 ]

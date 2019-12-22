@@ -262,3 +262,20 @@ class container_3_data(APIView):
 
 def home_view(request):
     return render(request, 'website/dashboard.html')
+
+def view_transactions(request):
+    #template_name: 'website/view_transactions.html'
+    user_transactions = []
+
+    for item in blockchain.chain:
+        if(len(item['transactions']) == 0):
+            pass
+        else:
+            user_transactions.append(item['transactions'][0])
+    
+    print(user_transactions)
+
+    context = {
+        'transactions': user_transactions,
+    }
+    return render(request, 'website/view_transactions.html', context)
