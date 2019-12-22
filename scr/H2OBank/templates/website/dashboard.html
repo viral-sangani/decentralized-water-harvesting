@@ -102,7 +102,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <h5 class="card-title text-uppercase text-muted mb-0">Total Usage</h5>
-                                            <span class="h2 font-weight-bold mb-0">350 Lit.</span>
+                                            <span class="h2 font-weight-bold mb-0">{{ total_usage }} Lit.</span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -121,7 +121,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <h5 class="card-title text-uppercase text-muted mb-0">My Balance</h5>
-                                            <span class="h2 font-weight-bold mb-0">49,65%</span>
+                                            <span class="h2 font-weight-bold mb-0">{{ total_balance }} Lit.</span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
@@ -140,7 +140,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <h5 class="card-title text-uppercase text-muted mb-0">Usage in last Month</h5>
-                                            <span class="h2 font-weight-bold mb-0">924 Lit.</span>
+                                            <span class="h2 font-weight-bold mb-0">{{ total_usage }} Lit.</span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
@@ -158,7 +158,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <h5 class="card-title text-uppercase text-muted mb-0">Water left in Bank</h5>
-                                            <span class="h2 font-weight-bold mb-0">2,356 Lit.</span>
+                                            <span class="h2 font-weight-bold mb-0">{{ total_balance }} Lit.</span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
@@ -180,50 +180,29 @@
                     <div class="card bg-gradient-default">
                         <div class="card-body">
                             <div class="mb-2">
-                                <sup class="text-white">$</sup> <span class="h2 text-white">3,300</span>
+                                <sup class="text-white">Credits </sup> <span class="h2 text-white"> {{ total_balance }}</span>
                                 <div class="text-light mt-2 text-sm">Your current balance</div>
-                                <div>
-                                    <span class="text-success font-weight-600">+ 15%</span> <span class="text-light">($250)</span>
-                                </div>
                             </div>
-                            <button class="btn btn-sm btn-block btn-neutral">Add credit</button>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col">
-                                    <small class="text-light">Orders: 60%</small>
-                                    <div class="progress progress-xs my-2">
-                                        <div class="progress-bar bg-success" style="width: 60%"></div>
-                                    </div>
-                                </div>
-                                <div class="col"><small class="text-light">Sales: 40%</small>
-                                    <div class="progress progress-xs my-2">
-                                        <div class="progress-bar bg-warning" style="width: 40%"></div>
-                                    </div>
-                                </div>
-                            </div>
+                            <button class="btn btn-sm btn-block btn-neutral py-4 mt-4">Add credit</button>
                         </div>
                     </div>
                         <div class="card bg-gradient-danger">
                             <div class="card-body">
                                 <div class="row justify-content-between align-items-center">
-                                    <div class="col">
-                                        <img src="{% static 'website/assets/img/icons/cards/bitcoin.png' %}" alt="Image placeholder" />
-                                    </div>
                                     <div class="col-auto">
                                         <span class="badge badge-lg badge-success">Active</span>
                                     </div>
                                 </div>
                                 <div class="my-4">
                                     <span class="h6 surtitle text-light">
-                                        Username
+                                        User ID
                                     </span>
-                                    <div class="h1 text-white">@johnsnow</div>
+                                    <div class="h1 text-white">{{ user_id }}</div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <span class="h6 surtitle text-light">Name</span>
-                                        <span class="d-block h3 text-white">John Snow</span>
+                                        <span class="d-block h3 text-white">Sharma Family</span>
                                     </div>
                                 </div>
                             </div>
@@ -233,89 +212,51 @@
             </div>
 
             <div class="col-xl-12">
-                <div class="row">
-                    <div class="col">
-                        <div class="card">
-                            <!-- Card header -->
-                            <div class="card-header border-0">
-                                <h3 class="mb-0">My Transections</h3>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table align-items-center table-flush">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th scope="col" class="sort" data-sort="name">Project</th>
-                                            <th scope="col" class="sort" data-sort="budget">Budget</th>
-                                            <th scope="col" class="sort" data-sort="status">Status</th>
-                                            <th scope="col">Users</th>
-                                            <th scope="col" class="sort" data-sort="completion">Completion</th>
-                                            <th scope="col"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="list">
-                                        
-                                        <tr>
-                                            <th scope="row">
-                                                <div class="media align-items-center">
-                                                    <a href="#" class="avatar rounded-circle mr-3">
-                                                        <img alt="Image placeholder" src="{% static 'website/assets/img/theme/angular.jpg' %}">
-                                                    </a>
-                                                    <div class="media-body">
-                                                        <span class="name mb-0 text-sm">Angular Now UI Kit PRO</span>
-                                                    </div>
-                                                </div>
-                                            </th>
-                                            <td class="budget">
-                                                $1800 USD
-                                            </td>
-                                            <td>
-                                                <span class="badge badge-dot mr-4">
-                                                    <i class="bg-success"></i>
-                                                    <span class="status">completed</span>
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <div class="avatar-group">
-                                                    <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                                                        <img alt="Image placeholder" src="{% static 'website/assets/img/theme/team-1.jpg' %}">
-                                                    </a>
-                                                    <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Romina Hadid">
-                                                        <img alt="Image placeholder" src="{% static 'website/assets/img/theme/team-2.jpg' %}">
-                                                    </a>
-                                                    <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Alexander Smith">
-                                                        <img alt="Image placeholder" src="{% static 'website/assets/img/theme/team-3.jpg' %}">
-                                                    </a>
-                                                    <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Jessica Doe">
-                                                        <img alt="Image placeholder" src="{% static 'website/assets/img/theme/team-4.jpg' %}">
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <span class="completion mr-2">100%</span>
-                                                    <div>
-                                                        <div class="progress">
-                                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                <div class="col">
+                    <div class="card">
+                        <!-- Card header -->
+                        <div class="card-header border-0">
+                            <h3 class="mb-0">My Transections</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col" class="sort" data-sort="name">ID</th>
+                                        <th scope="col" class="sort" data-sort="budget">Sender</th>
+                                        <th scope="col" class="sort" data-sort="status">Receiver</th>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col" class="sort" data-sort="completion">Time</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="list">
+                                    
+                                    {% for item in user_transection  %}
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="media align-items-center">
+                                                        <div class="media-body">
+                                                            <span class="name mb-0 text-sm">{{ forloop.counter }}</span>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </td>
-                                            <td class="text-right">
-                                                <div class="dropdown">
-                                                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <i class="fas fa-ellipsis-v"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                        <a class="dropdown-item" href="#">Action</a>
-                                                        <a class="dropdown-item" href="#">Another action</a>
-                                                        <a class="dropdown-item" href="#">Something else here</a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                                </th>
+                                                <td class="budget">
+                                                    {{ item.sender }}
+                                                </td>
+                                                <td>
+                                                    {{ item.receiver }}
+                                                </td>
+                                                <td>
+                                                    {{ item.amount }}
+                                                </td>
+                                                <td>
+                                                    {{ item.time }}
+                                                </td>
+                                            </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

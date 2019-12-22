@@ -260,5 +260,35 @@ class container_3_data(APIView):
 
 #################################################### Website Code #####################################################
 
+# user = e36f0158f0aed45b3bc755dc52ed4560d
+# server =  2ad8e222853549e59c9d528731b0cf48
+
+
 def home_view(request):
-    return render(request, 'website/dashboard.html')
+    user_transection = []
+    total_usage = 0
+    total_balance = 0
+    for item in blockchain.chain:
+        if len(item['transactions']) == 0:
+            pass
+        else:
+            user_transection.append(item['transactions'][0])
+            if item['transactions'][0]['receiver'] == "e36f0158f0aed45b3bc755dc52ed4560d":
+                print(item['transactions'][0]['amount'])
+                total_usage += item['transactions'][0]['amount']
+
+            if item['transactions'][0]['sender'] == "e36f0158f0aed45b3bc755dc52ed4560d":
+                print(item['transactions'][0]['amount'])
+                total_balance += item['transactions'][0]['amount']
+
+    context = {
+        'total_usage':total_usage,
+        'total_balance': total_balance,
+        'usage_last_month': total_usage,
+        'water_in_bank': total_balance,
+        'user_id': 'e36f0158f0aed45b3bc755dc52ed4560d',
+        'user_transection': user_transection
+    }
+    return render(request, 'website/dashboard.html', context)
+
+
