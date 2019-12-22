@@ -19,7 +19,7 @@ transfer using different sensors.
 > Using blockchain we have made a transparent system which anyone can monitor.
 > Credits are added to your system for every amount of water contributed which can be used later.
 
-![alt text](https://github.com/viral-sangani/decentralized-water-harvesting/blob/master/Images/Dashboard.png "Dashboa")
+![alt text](https://github.com/viral-sangani/decentralized-water-harvesting/blob/master/Images/Dashboard.png "Dashboard")
 #### Our prototype is divided into 3 parts :
 
 * 1. TANK 1 (water harvester)-
@@ -29,6 +29,13 @@ transfer using different sensors.
      Ultrasonic sensors:- Automatically filling when needed.
 * 3. Central tank (stores water and distributes water when needed)-
      Flow sensors- checking the quantity of water used.
+
+![alt text](https://github.com/viral-sangani/decentralized-water-harvesting/blob/master/Images/WhatsApp%20Image%202019-12-22%20at%2012.58.29.jpeg "Dashboard")
+
+![alt text](https://github.com/viral-sangani/decentralized-water-harvesting/blob/master/Images/WhatsApp%20Image%202019-12-22%20at%2012.58.25.jpeg "Dashboard")
+
+![alt text](https://github.com/viral-sangani/decentralized-water-harvesting/blob/master/Images/WhatsApp%20Image%202019-12-22%20at%2012.58.27.jpeg "Dashboard")
+
 
 Blockchain solves the problems of unfair water distribution and monopolies, we need more
 transparency. Blockchain technology plans to provide water transparency on a massive scale
@@ -40,3 +47,4 @@ changes the way we manage water, without compromising our safety..
 Thus by using our system we have made a more efficient way to utilize the water resources and
 avoid its wastage by automating using IOT and making a transparent system, free from corruption
 using blockchain.
+
