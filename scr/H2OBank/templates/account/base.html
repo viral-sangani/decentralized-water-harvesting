@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>Argon Dashboard PRO - Premium Bootstrap 4 Admin Template</title>
+	<title>Decentralized H2O Harvesting</title>
 
 	{% load static %}
 	<link rel="icon" href="{% static 'account/assets/img/brand/favicon.png' %}" type="image/png">
@@ -20,9 +20,9 @@
 	<!-- Navbar -->
 	<nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
 		<div class="container">
-			<a class="navbar-brand" href="../../../argon-dashboard-pro/pages/dashboards/dashboard.html">
+			{% comment %} <a class="navbar-brand" href="../../../argon-dashboard-pro/pages/dashboards/dashboard.html">
 				<img src="{% static 'account/assets/img/brand/white.png' %}">
-			</a>
+			</a> {% endcomment %}
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -30,9 +30,9 @@
 				<div class="navbar-collapse-header">
 					<div class="row">
 						<div class="col-6 collapse-brand">
-							<a href="../../../argon-dashboard-pro/pages/dashboards/dashboard.html">
+							{% comment %} <a href="../../../argon-dashboard-pro/pages/dashboards/dashboard.html">
 								<img src="{% static 'account/assets/img/brand/blue.png' %}">
-							</a>
+							</a> {% endcomment %}
 						</div>
 						<div class="col-6 collapse-close">
 							<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,12 +49,12 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="../../../argon-dashboard-pro/pages/examples/login.html" class="nav-link">
+						<a href="{% url 'login_view' %}" class="nav-link">
 							<span class="nav-link-inner--text">Login</span>
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="../../../argon-dashboard-pro/pages/examples/register.html" class="nav-link">
+						<a href="{% url 'register_view' %}" class="nav-link">
 							<span class="nav-link-inner--text">Register</span>
 						</a>
 					</li>

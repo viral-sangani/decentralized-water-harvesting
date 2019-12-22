@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_auth',
 
-    # 'channels',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -66,17 +66,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'H2OBank.wsgi.application'
-# ASGI_APPLICATION = "blockchain.routing.application"
-# CHANNEL_LAYER = {
-#     'default': {
-#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
-#         'CONFIG': {
-#             'hosts': [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
-#             'capacity': 100,
-#         },
-#         'ROUTING': 'blockchain.routing.channel_routing',
-#     },
-# }
+ASGI_APPLICATION = "H2OBank.routing.application"
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+            'capacity': 100,
+        }
+    },
+}
 
 DATABASES = {
     'default': {

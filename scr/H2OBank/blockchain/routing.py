@@ -1,10 +1,10 @@
-from channels import route
+from django.urls import path
+from channels.routing import ProtocolTypeRouter, URLRouter
+from .views import LiveScoreConsumer
 
-from blockchain import consumers
-
-
-channel_routing = [
-    route('websocket.connect', consumers.ws_connect),
-    route('websocket.receive', consumers.ws_receive),
-    route('websocket.disconnect', consumers.ws_disconnect),
-]
+websockets = URLRouter([
+    path(
+        "ws/block-chain/", LiveScoreConsumer,
+        name="lock-chain",
+    ),
+])

@@ -136,3 +136,14 @@
         </div>
     </div>
 {% endblock %}
+
+{% block js %}
+    <script>
+        lo = new WebSocket("ws://localhost:8000/ws/block-chain/");
+        lo.onmessage = (data) => console.log(data);
+        lo.onopen = () => {
+            console.log("sending city");
+            lo.send(JSON.stringify({"get_blockchain": 1}));
+        }
+    </script>
+{% endblock %}

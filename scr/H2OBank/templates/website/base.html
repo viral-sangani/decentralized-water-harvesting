@@ -3,7 +3,7 @@
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Argon Dashboard PRO - Premium Bootstrap 4 Admin Template</title>
+	<title>Decentralized H2O Harvestin</title>
 	{% load static %}
 	<link rel="canonical" href="https://www.creative-tim.com/product/argon-dashboard-pro" />
 	
@@ -23,9 +23,9 @@
 		<div class="scrollbar-inner">
 			<!-- Brand -->
 			<div class="sidenav-header d-flex align-items-center">
-				<a class="navbar-brand" href="../../../argon-dashboard-pro/pages/dashboards/dashboard.html">
+				{% comment %} <a class="navbar-brand" href="../../../argon-dashboard-pro/pages/dashboards/dashboard.html">
 					<img src="{% static 'website/assets/img/brand/blue.png' %}" class="navbar-brand-img" alt="...">
-				</a>
+				</a> {% endcomment %}
 				<div class="ml-auto">
 					<!-- Sidenav toggler -->
 					<div class="sidenav-toggler d-none d-xl-block" data-action="sidenav-unpin" data-target="#sidenav-main">
@@ -43,13 +43,13 @@
 					<!-- Nav items -->
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link active" href="index.html" role="button" aria-controls="navbar-dashboards">
+							<a class="nav-link active" href="{% url 'home_view' %}" role="button" aria-controls="navbar-dashboards">
 								<i class="ni ni-shop text-primary"></i>
 								<span class="nav-link-text">Dashboards</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="../../../index.html">
+							<a class="nav-link" href="{% url 'view_transactions' %}">
 								<i class="ni ni-chart-pie-35 text-info"></i>
 								<span class="nav-link-text">View BlockChain</span>
 							</a>

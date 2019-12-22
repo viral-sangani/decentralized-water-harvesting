@@ -11,6 +11,12 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 
+from channels.exceptions import DenyConnection
+from channels.generic.websocket import AsyncWebsocketConsumer
+
+from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.models import AnonymousUser
+
 
 class Blockchain:
 
@@ -191,11 +197,27 @@ class container_1(APIView):
     permission_classes = [AllowAny]
     def post(self, request):
         received_json = json.loads(request.body)
+        amount = received_json['amount']
+        if amount > 40 and amount < 60:
+            amount *= 27
 
-        print(received_json)
+        if amount >= 60 and amount < 80:
+            amount *= 24
+
+        if amount < 100 and amount > 80:
+            amount *= 21
+
+        if amount < 140 and amount > 101:
+            amount *= 12
+
+        if amount <= 40 and amount >= 15:
+            amount *= 37
+        
+        if amount <= 14 and amount > 1:
+            amount *= 83
 
         if "sender" in received_json and "receiver" in received_json and "amount" in received_json:
-            blockchain.add_transaction(received_json['sender'], received_json['receiver'], received_json['amount'],datetime.datetime.now())
+            blockchain.add_transaction(received_json['sender'], received_json['receiver'], amount,datetime.datetime.now())
 
         previous_block = blockchain.get_last_block()
         previous_nonce = previous_block['nonce']
@@ -236,8 +258,28 @@ class container_3_data(APIView):
 
         print(received_json)
 
+        amount = received_json['amount']
+
+        if amount > 40 and amount < 60:
+            amount *= 27
+
+        if amount >= 60 and amount < 80:
+            amount *= 24
+
+        if amount < 100 and amount > 80:
+            amount *= 21
+
+        if amount < 140 and amount > 101:
+            amount *= 12
+
+        if amount <= 40 and amount >= 15:
+            amount *= 37
+        
+        if amount <= 14 and amount > 1:
+            amount *= 83
+
         if "sender" in received_json and "receiver" in received_json and "amount" in received_json:
-            blockchain.add_transaction(received_json['sender'], received_json['receiver'], received_json['amount'],datetime.datetime.now())
+            blockchain.add_transaction(received_json['sender'], received_json['receiver'], amount,datetime.datetime.now())
 
         previous_block = blockchain.get_last_block()
         previous_nonce = previous_block['nonce']
@@ -274,12 +316,13 @@ def home_view(request):
         else:
             user_transection.append(item['transactions'][0])
             if item['transactions'][0]['receiver'] == "e36f0158f0aed45b3bc755dc52ed4560d":
-                print(item['transactions'][0]['amount'])
+                #print(item['transactions'][0]['amount'])
                 total_usage += item['transactions'][0]['amount']
 
             if item['transactions'][0]['sender'] == "e36f0158f0aed45b3bc755dc52ed4560d":
-                print(item['transactions'][0]['amount'])
+                #print(item['transactions'][0]['amount'])
                 total_balance += item['transactions'][0]['amount']
+
 
     context = {
         'total_usage':total_usage,
@@ -308,3 +351,35 @@ def view_transactions(request):
         'transactions': user_transactions,
     }
     return render(request, 'website/view_transactions.html', context)
+
+
+############################################ Consumer.py #########################################################
+class LiveScoreConsumer(AsyncWebsocketConsumer):
+    async def connect(self):
+        self.group_name = 'block_chain'
+        await self.channel_layer.group_add(
+           self.group_name,
+           self.channel_name
+        )
+        await self.accept()
+
+    async def receive(self, text_data):
+        await self.channel_layer.group_send(
+            self.group_name,
+            {
+                'type': 'get_blockchain',
+                'chain': blockchain.chain
+            }
+        )
+    async def get_blockchain(self, event):
+        await self.send(text_data=json.dumps({
+                'chain': blockchain.chain
+            }))
+
+
+    async def websocket_disconnect(self, message):
+        # Leave room group
+        await self.channel_layer.group_discard(
+            self.room_group_name,
+            self.channel_name
+        )
