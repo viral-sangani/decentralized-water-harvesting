@@ -261,4 +261,4 @@ class container_3_data(APIView):
 #################################################### Website Code #####################################################
 
 def home_view(request):
-    return render(request, 'website/base.html')
+    return render(request, 'website/dashboard.html')
