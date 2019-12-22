@@ -16,16 +16,17 @@ User needs to install a big tank to store the the harvested water.
 > So as to more efficiently manage the water harvesting system we are automating all the water
 transfer using different sensors.
 
-Using blockchain we have made a transparent system which anyone can monitor.
-Credits are added to your system for every amount of water contributed which can be used later.
-Our prototype is divided into 3 parts :
+> Using blockchain we have made a transparent system which anyone can monitor.
+> Credits are added to your system for every amount of water contributed which can be used later.
 
-1. TANK 1 (water harvester)-
+#### Our prototype is divided into 3 parts :
+
+⋅⋅* 1. TANK 1 (water harvester)-
 Ultrasonic sensors- checking water level.
 Flow sensors- checking quantity of water sent to Central tank.
-2.TANK 2 (storing water)-
+⋅⋅* 2.TANK 2 (storing water)-
 Ultrasonic sensors:- Automatically filling when needed.
-3.Central tank (stores water and distributes water when needed)-
+⋅⋅* 3.Central tank (stores water and distributes water when needed)-
 Flow sensors- checking the quantity of water used.
 
 Blockchain solves the problems of unfair water distribution and monopolies, we need more
