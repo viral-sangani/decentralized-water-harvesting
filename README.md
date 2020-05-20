@@ -1,3 +1,4 @@
+## Decentralized Wate Harvesting solution.
 In today’s world water, a vital resource required for sustaining life is becoming scarce, which is
 leading to an impure water supply and water shortages. To prevent this, not only are water
 preservation techniques like rainwater harvesting required, but also water wastage must be
